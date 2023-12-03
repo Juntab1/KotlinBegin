@@ -1,4 +1,8 @@
 // can just create the val within the parameter instead of making it a val in the class itself
+// types of visibility
+// internal: public within the module
+// private: only within the file it is in
+// protected: you can do this for variables and such to make it private for that class or file
 class Person(val firstName: String = "Jun", val lastName: String = "B") {
 
     // var since it will change later

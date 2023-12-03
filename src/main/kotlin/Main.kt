@@ -1,5 +1,7 @@
-fun sayHello(itemToGreet:List<String>){
-    itemToGreet.forEach {
+
+// vararg parameter: take variable number of whatever type it is, makes it so we don't have to pass anything in if we do not want
+fun sayHello(vararg curr:String){
+    curr.forEach {
         println(it)
     }
 }
@@ -7,25 +9,10 @@ fun sayHello(itemToGreet:List<String>){
 
 
 fun main() {
-    val interestingThings = listOf("Kotlin", "Programming", "Comic Books")
-
-    val map = mapOf(1 to "a", 2 to "b", 3 to "c")
-    map.forEach { key, value -> println("$key -> $value") }
-
-    // by default a collection in Kotlin is immutable
-    // create mutable
-    val mutable = mutableListOf("3")
-    mutable.add("2")
-    println(mutable)
-    sayHello(interestingThings)
-
-//    using list
-//    val interestingThings = listOf("Kotlin", "Programming", "Comic Books")
-//    interestingThings[0]
-//    interestingThings.get(1)
-//    interestingThings.forEach {
-//        println(it)
-//    }
+    val interestingThings = arrayOf("Kotlin", "Programming", "Comic Books")
+    // pass in array and list by using a spread operator, "*
+    sayHello(*interestingThings)
+    sayHello("1st", "2nd", "3rd")
 
 }
 

@@ -1,14 +1,22 @@
 interface PersonInfoProvider {
-    fun printInfo(person: Person)
+    val providerInfo : String
+
+    fun printInfo(person: Person) {
+        println(providerInfo)
+        person.printInfo()
+    }
 }
 
 
 // : what you want to implement
 // abstract class is used when you don't want to use everything from the implementor
 class BasicInfoProvider : PersonInfoProvider {
-    // need override here
+    override val providerInfo: String
+        get() = "BasicInfoProvider"
+
     override fun printInfo(person: Person) {
-        println("printInfo")
+        super.printInfo(person)
+        println("additional print stuff")
     }
 }
 

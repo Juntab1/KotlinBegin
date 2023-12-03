@@ -6,14 +6,14 @@ fun sayHello(vararg curr:String){
     }
 }
 
+// Set default for parameters
+fun greetPerson(greeting: String = "Hello", name: String = "Jun") = println("$greeting $name")
+
 
 
 fun main() {
-    val interestingThings = arrayOf("Kotlin", "Programming", "Comic Books")
-    // pass in array and list by using a spread operator, "*
-    sayHello(*interestingThings)
-    sayHello("1st", "2nd", "3rd")
-
+    // using "parameter =" meaning we can change order of parameters
+    greetPerson(name = "hi", greeting = "Jun")
 }
 
 

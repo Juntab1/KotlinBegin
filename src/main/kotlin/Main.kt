@@ -16,6 +16,11 @@ fun main() {
     val person = Person("Jun", "B")
     // can do this without a getter or setter
     println(person.lastName)
+    person.nickName = "JunMonth"
+    println(person.nickName)
+    person.nickName = "new nickname"
+    println(person.nickName)
+    person.printInfo()
 }
 
 

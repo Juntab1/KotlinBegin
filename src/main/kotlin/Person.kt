@@ -1,18 +1,21 @@
 // can just create the val within the parameter instead of making it a val in the class itself
-class Person(val firstName: String, val lastName: String) {
-    // can use '= something' instead of using an init block to create it at first
-//    val firstName: String = _firstName
-//    val lastName: String = _lastName
+class Person(val firstName: String = "Jun", val lastName: String = "B") {
 
-    // init 1 and 2 are always run through but the constructor depends on if parameters are passed in for the class or not
-    init {
-        println("init 1")
-    }
-    constructor(): this("Jun", "B") {
-        println("secondary constructor")
-    }
+    // var since it will change later
+    var nickName : String? = null
+        set(value) {
+            // setting the value of nickName
+            field = value
+            println("the new nickname is valid")
+        }
+        get() {
+            println("the retuned value is $field")
+            return field
+        }
 
-    init {
-        println("init 2")
+    fun printInfo() {
+        // elvis operator, ?: , if true return what is on the left side, if not the go on the right side
+        val nickNameToPrint = nickName ?: "no nickname"
+        println("$firstName, $nickNameToPrint, $lastName")
     }
 }

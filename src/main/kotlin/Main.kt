@@ -1,38 +1,22 @@
-// top level variable, non-null by default, can't make it equal to null
-var name : String = "Jun1"
+// giving this method a return type
+fun getGreeting(): String {
+    return "Hello Kotlin"
+}
 
-// if you want it to be maybe null, use the ?
-val name2: String? = "Jun4"
+// single expression function
+fun getHello() = "Hello"
 
-// don't have to say the type but if you do it can't be null
-var noType = 1
-
-
-
+// Unit is absence of any return type, do not want to return anything
+// don't have to have return type
+fun sayHello(): Unit {
+    println(getGreeting())
+}
 
 fun main() {
-    // can create and if statement variable
-    val ifCheck = when(noType) {
-        null -> println("Hi")
-        else -> println("Greeting")
-    }
-
-    // mutable vairables: can be changed
-    var changable: String = "Jun2"
-
-    // unmutable
-    val notChange: String = "Jun3"
-
-//    check if it is null
-//    if (name2 != null){
-//        println(name2)
-//    }
-
-//    used for checking a variable and see if it needs to be switched on
-//    when(name2){
-//        null -> println("it's null")
-//        else -> println(name2)
-//    }
-
-
+    println("Hello World")
+    println(getGreeting())
+    sayHello()
+    println(getHello())
 }
+
+

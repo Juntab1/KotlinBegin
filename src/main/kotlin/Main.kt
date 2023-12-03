@@ -12,8 +12,10 @@ fun greetPerson(greeting: String = "Hello", name: String = "Jun") = println("$gr
 
 
 fun main() {
-    // using "parameter =" meaning we can change order of parameters
-    greetPerson(name = "hi", greeting = "Jun")
+    // just specify class name, don't have to use "new"
+    val person = Person("Jun", "B")
+    // can do this without a getter or setter
+    println(person.lastName)
 }
 
 

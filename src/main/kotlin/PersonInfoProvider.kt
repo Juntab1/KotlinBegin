@@ -32,4 +32,18 @@ fun main() {
     val provider = BasicInfoProvider()
 
     provider.printInfo(Person())
+
+    checkTypes(provider)
+}
+
+// typecasting
+fun checkTypes(infoProvider: PersonInfoProvider) {
+    // if info provider is an instance of the session info provider
+    if(infoProvider !is SessionInfoProvider) {
+        println("is not a session info provider")
+    }
+    else{
+        println("is a session info provider")
+        infoProvider.getSessionId()
+    }
 }

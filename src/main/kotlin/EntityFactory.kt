@@ -1,23 +1,17 @@
-interface IdProvider {
-    fun getId(): String
+//object declaration, thread-safe: runs correctly during simultaneous execution by multiple threads
+object EntityFactory {
+    fun create() = Entity("id", "Kotlin")
 }
 
-class Entity private constructor(val id: String){
-    // companian object is scoped to this class, have access to private constructure class
-    // this is like using static classes and such in Java
-    // overall helps keep functionality out of the scope of instances
-    companion object Factory : IdProvider{
-        override fun getId(): String {
-            return "123"
-        }
 
-        const val id = "id"
-        fun create() = Entity(getId())
+class Entity(val id: String, val name: String) {
+    override fun toString(): String {
+        return "id:$id name:$name"
     }
 }
 
 
 fun main() {
-    val entity = Entity.Factory.create()
-    Entity.id
+    val entity = EntityFactory.create()
+    println(entity)
 }

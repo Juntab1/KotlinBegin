@@ -14,7 +14,9 @@ interface SessionInfoProvider {
 
 // : what you want to implement
 // abstract class is used when you don't want to use everything from the implementor
-class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
+open class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
+    // protected helps hide the implementation detail to the user
+    protected open val sessionIdPrefix = "Session"
     override val providerInfo: String
         get() = "BasicInfoProvider"
 
@@ -24,12 +26,12 @@ class BasicInfoProvider : PersonInfoProvider, SessionInfoProvider {
     }
 
     override fun getSessionId(): String {
-        return "Session"
+        return sessionIdPrefix
     }
 }
 
 fun main() {
-    val provider = BasicInfoProvider()
+    val provider = FancyInfoProvider()
 
     provider.printInfo(Person())
 

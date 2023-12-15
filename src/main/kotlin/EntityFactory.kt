@@ -44,11 +44,20 @@ sealed class Entity() {
     data class Hard(val id: String, val name: String, val multiplier: Float): Entity()
 }
 
+fun Entity.Medium.printInfo() {
+    println("Medium class: $id")
+}
+
 
 
 fun main() {
     val entity1 = EntityFactory.create(EntityType.EASY)
-    val entity2 = EntityFactory.create(EntityType.EASY)
+    val entity2 = EntityFactory.create(EntityType.MEDIUM)
+
+    // using smart casting to see if it extends
+    if (entity2 is Entity.Medium) {
+        entity2.printInfo()
+    }
 
     // same entities
 //    val entity1 = Entity.Easy("id", "name")
@@ -62,5 +71,6 @@ fun main() {
         println("they are not equal")
     }
 
+    Entity.Medium("id", "name").printInfo()
 
 }

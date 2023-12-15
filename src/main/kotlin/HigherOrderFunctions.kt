@@ -15,11 +15,13 @@ val predicate: (String) -> Boolean = {
     it.startsWith("J")
 }
 
-
+fun getPrintPredicate(): (String) -> Boolean {
+    return {it.startsWith("J")}
+}
 
 fun main() {
     val list = listOf("Kotlin", "Java", "C++", "Javascript")
-    printFilteredStrings((list), predicate)
+    printFilteredStrings((list), getPrintPredicate())
 
     printFilteredStrings(list, null)
 }

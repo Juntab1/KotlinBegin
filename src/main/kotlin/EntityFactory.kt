@@ -36,6 +36,9 @@ sealed class Entity() {
         val name = "Help"
     }
 
+    // data classes are mutable data types that can make hashcode into string and such
+    // this helps do quality comparisons
+    // immutable data types
     data class Easy(val id: String, val name: String): Entity()
     data class Medium(val id: String, val name: String): Entity()
     data class Hard(val id: String, val name: String, val multiplier: Float): Entity()
@@ -44,9 +47,10 @@ sealed class Entity() {
 
 
 fun main() {
-    val entity:Entity = EntityFactory.create(EntityType.EASY)
-    val msg = when (entity) {
-        // singleton so no reason to have is
+    // way to call class specific functions
+    val entity:Entity = EntityFactory.create(EntityType.HELP)
+    // type checking
+    val msg = when(entity) {
         Entity.Help -> "help class"
         is Entity.Easy -> "easy class"
         is Entity.Hard -> "medium class"
@@ -54,6 +58,9 @@ fun main() {
     }
 
     println(msg)
+
+
+
 
 
 }

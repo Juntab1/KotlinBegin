@@ -47,20 +47,20 @@ sealed class Entity() {
 
 
 fun main() {
-    // way to call class specific functions
-    val entity:Entity = EntityFactory.create(EntityType.HELP)
-    // type checking
-    val msg = when(entity) {
-        Entity.Help -> "help class"
-        is Entity.Easy -> "easy class"
-        is Entity.Hard -> "medium class"
-        is Entity.Medium -> "hard class"
+    val entity1 = EntityFactory.create(EntityType.EASY)
+    val entity2 = EntityFactory.create(EntityType.EASY)
+
+    // same entities
+//    val entity1 = Entity.Easy("id", "name")
+//    val entity2 = Entity.Easy("id", "name")
+
+    // === is a referential which is it checking if it is a reference
+    if (entity1 == entity2) {
+        println("they are equal")
     }
-
-    println(msg)
-
-
-
+    else{
+        println("they are not equal")
+    }
 
 
 }

@@ -48,6 +48,8 @@ fun Entity.Medium.printInfo() {
     println("Medium class: $id")
 }
 
+val Entity.Medium.info: String
+    get() = "some info"
 
 
 fun main() {
@@ -57,6 +59,7 @@ fun main() {
     // using smart casting to see if it extends
     if (entity2 is Entity.Medium) {
         entity2.printInfo()
+        entity2.info
     }
 
     // same entities
